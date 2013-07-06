@@ -5,3 +5,7 @@ a {
     border: 1px solid #777;
     width:273px;
 }
+
+.explanation {
+    color: green;
+}

@@ -13,6 +13,16 @@
         <p>Request uri: ${pageContext.request.requestURI}</p>
         <p>Request url: ${pageContext.request.requestURL}</p>
 
+        <p class="explanation">
+        explanation: if the input of c:url is a relative path and start with a '/', then the contextpath will be added as prefix,
+            if it is an absolute path or without a '/', nothing will be added
+            <ul>
+            <li>the result of &ltc:url&gt value="/compare" is: <c:url value="/compare"/></li>
+            <li>the result of &ltc:url&gt value="compare" is: <c:url value="compare"/></li>
+            <li>plain one: /compare</li>
+            </ul>
+        </p>
+
         <section>
             <a href="<c:url value="compare?input1=Donkey&input2=dog"/>">Go to compare using jstl c:url </a>
             <a href="compare?input1=Donkey&input2=dog">Go to compare using relative url </a>
