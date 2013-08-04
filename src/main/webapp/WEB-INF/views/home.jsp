@@ -1,4 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <%@ page session="false" %>
 <html>
     <head>
@@ -23,6 +25,25 @@
             </ul>
         </p>
 
+        	<form:form method="POST" commandName="customer" action="/simpleSpringMVC/koly/customer" >
+        		<form:errors path="*" cssClass="errorblock" element="div" />
+        		<table>
+        			<tr>
+        				<td>Customer Name :</td>
+        				<td><form:input path="name" /></td>
+        				<td><form:errors path="name" cssClass="error" /></td>
+        			</tr>
+        			<tr>
+        				<td>Customer Age :</td>
+        				<td><form:input path="age" /></td>
+        				<td><form:errors path="age" cssClass="error" /></td>
+        			</tr>
+        			<tr>
+        				<td colspan="3"><input type="submit" /></td>
+        			</tr>
+        		</table>
+        	</form:form>
+
         <section>
             <a href="<c:url value="compare?input1=Donkey&input2=dog"/>">Go to compare using jstl c:url </a>
             <a href="compare?input1=Donkey&input2=dog">Go to compare using relative url </a>
@@ -33,6 +54,8 @@
             <a href="info.jsp">Go info page too </a>
             <a href="<c:url value="info.jsp"/>">three</a>
         </section>
+
+        <a id="jsonButton">
     </body>
 </html>
 

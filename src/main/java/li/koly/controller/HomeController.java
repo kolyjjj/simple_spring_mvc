@@ -3,10 +3,14 @@ package li.koly.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
 import java.util.Comparator;
 
 @Controller
@@ -15,9 +19,19 @@ public class HomeController {
     private Comparator<String> comparator;
 
     @RequestMapping
-    public String home(){
+    public String home(ModelMap model){
         System.out.println("This is the home controller!");
+        model.addAttribute("customer", new Customer());
         return "home";
+    }
+
+    @RequestMapping(value = "customer")
+    public String homeSubmit(@Valid Customer customer, BindingResult result){
+        System.out.println("This is the home controller!");
+        if (result.hasErrors()){
+            return "home";
+        }
+        return "info";
     }
 
     @RequestMapping(value = "/compare", method = RequestMethod.GET)
