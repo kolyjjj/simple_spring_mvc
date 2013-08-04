@@ -27,7 +27,7 @@ public class HomeController {
 
     @RequestMapping(value = "customer")
     public String homeSubmit(@Valid Customer customer, BindingResult result){
-        System.out.println("This is the home controller!");
+        System.out.println("This is the home controller submit handler!");
         if (result.hasErrors()){
             return "home";
         }
