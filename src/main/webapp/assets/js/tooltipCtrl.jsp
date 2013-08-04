@@ -1,3 +1,0 @@
-function tooltipCtrl($scope){
-
-}

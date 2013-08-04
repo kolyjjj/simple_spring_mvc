@@ -5,17 +5,18 @@
 <html>
     <head>
         <title>Home</title>
-        <link href="<c:url value="/assets/css/all.css"/>" type="text/css" rel="stylesheet"/>
         <link href="<c:url value="/assets/css/lib/bootstrap.css"/>" type="text/css" rel="stylesheet"/>
-        <script type="text/javascript" src="<c:url value="/assets/js/all.js"/>"></script>
+        <link href="<c:url value="/assets/css/all.css"/>" type="text/css" rel="stylesheet"/>
         <script type="text/javascript" src="<c:url value="/assets/js/lib/bootstrap.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/assets/js/lib/jquery-2.0.3.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/assets/js/lib/angular.js"/>"></script>
+        <script type="text/javascript" src="<c:url value="/assets/js/all.js"/>"></script>
     </head>
-    <body ng-app>
-        <h1>This is to test tooltip</h1>
+    <body ng-app="simple">
+    <div ng-controller="tooltipCtrl">
+        <h1>{{greeting}}</h1>
 
-        <form:form action="tooltip" commandName="customer" method="POST" ng-controller="tooltipCtrl">
+        <form:form action="tooltip" commandName="customer" method="POST" >
             <ul>
                 <li>
                     <label>Your name:</label>
@@ -28,7 +29,7 @@
             </ul>
             <label>
         </form:form>
-
+    </div>
     </body>
 </html>
 
