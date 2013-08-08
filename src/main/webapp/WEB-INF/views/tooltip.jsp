@@ -10,12 +10,13 @@
         <script type="text/javascript" src="<c:url value="/assets/js/lib/jquery-2.0.3.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/assets/js/lib/bootstrap.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/assets/js/lib/angular.js"/>"></script>
+        <script type="text/javascript" src="<c:url value="/assets/js/lib/modernizr-latest.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/assets/js/all.js"/>"></script>
     </head>
     <body ng-app="simple" class="container">
-    <div ng-controller="tooltipCtrl">
+    <div ng-controller="tooltipCtrl" class="row">
         <h1>{{greeting}}</h1>
-        <div class="span9 left">
+        <div class="col-lg-8">
 
             <form:form action="tooltip" commandName="customer" method="POST" >
                 <ul>
@@ -32,12 +33,16 @@
                         <form:input path="age"/>
                     </li>
                 </ul>
-                <label>
             </form:form>
         </div>
-        <div class="span3 right">
+        <div class="col-lg-4">
             <div>This is right column</div>
         </div>
+    </div>
+
+    <div class="row show-grid">
+        <div class="col-lg-8">8</div>
+        <div class="col-lg-4">4</div>
     </div>
     </body>
 </html>
