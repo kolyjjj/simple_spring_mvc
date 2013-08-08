@@ -3,7 +3,7 @@ a {
     margin-bottom: 10px;
     text-decoration: none;
     border: 1px solid #777;
-    width:273px;
+    width:auto;
 }
 
 .explanation {
@@ -12,10 +12,37 @@ a {
 
 label {
     display:block;
+    width:auto;
 }
+
 
 ul li {
     margin-bottom: 10px;
 }
 
+body{
+    margin: 0 auto;
+    width:100%;
+}
 
+.tooltip.right .tooltip-arrow {
+    border-right-color:#eee;
+}
+
+.tooltip-inner{
+    background-color: #eee;
+    color:black;
+}
+
+.left {
+    border: 1px solid green;
+}
+
+.right {
+    border: 1px solid blue;
+}
+
+.tooltip-class {
+    width:15px;
+    height:15px;
+}
