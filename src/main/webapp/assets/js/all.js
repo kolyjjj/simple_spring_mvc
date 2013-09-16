@@ -63,3 +63,107 @@ simpleModule.directive('sTooltip', function(){
 
     };
 });
+
+console.log("mask is called!");
+$(function(){
+jQuery('#mask').inputmask("d/m/y");
+});
+
+simpleModule.directive('colorBlock', function(){
+    return {
+        restrict: 'E',
+        replace: true,
+        scope: {
+            text: '@'
+        },
+        template: "<div class='color-box'>{{text}}</div>"
+    };
+});
+
+simpleModule.directive('dlHoverShading', function(){
+    return function(scope, elem, attrs){
+    console.log("hover shading");
+        var colorClass = attrs.dlHoverShading || 'hover-background-color';
+        angular.element(elem).hover(
+            function(){
+                angular.element(this).addClass(colorClass);
+            },
+            function(){
+                angular.element(this).removeClass(colorClass);
+            }
+        );
+    };
+});
+
+
+////for angularjs recursive directive
+//var app = angular.module('simple', []);
+
+simpleModule.directive('collection', function(){
+	return {
+		restrict: 'E',
+		replace: true,
+		scope: {
+			collection: '='
+		},
+//		templateUrl: "collection.html"
+        template:"<ul><member ng-repeat='member in collection' member='member'></ul>"
+	};
+});
+
+simpleModule.directive('member', function($compile){
+	return {
+		restrict: 'E',
+		replace: true,
+		scope: {
+			member: '='
+		},
+//		templateUrl: "member.html",
+        template:"<li ng-click='add()'>{{member.name}}</li>",
+		link: function(scope, element, attrs){
+			if (angular.isArray(scope.member.children)){
+				element.append("<collection collection='member.children'></collection>");
+				$compile(element.contents())(scope);
+			}
+
+			scope.add = function(){
+				console.log('add');
+			};
+		}
+	};
+});
+
+simpleModule.controller('IndexCtrl', function($scope){
+	$scope.tasks = [
+		{
+			name: 'Europe',
+			children: [
+				{
+					name: 'Italy',
+					children:[
+						{
+							name: 'Rome'
+						},
+						{
+							name: 'Milan'
+						}
+					]
+				},
+				{
+					name: 'Spain'
+				}
+			]
+		},
+		{
+			name: 'South America',
+			children: [
+				{
+					name: 'Brasil'
+				},
+				{
+					name: 'Peru'
+				}
+			]
+		}
+	];
+});

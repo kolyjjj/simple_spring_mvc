@@ -11,6 +11,7 @@
         <script type="text/javascript" src="<c:url value="/assets/js/lib/bootstrap.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/assets/js/lib/angular.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/assets/js/lib/modernizr-latest.js"/>"></script>
+        <script type="text/javascript" src="<c:url value="/assets/js/lib/jquery-inputmask.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/assets/js/all.js"/>"></script>
     </head>
     <body ng-app="simple" class="container">
@@ -34,6 +35,8 @@
                     </li>
                 </ul>
             </form:form>
+            <label for="mask">Mask</label>
+            <input id="mask">
         </div>
         <div class="col-lg-4">
             <div>This is right column</div>
@@ -44,6 +47,28 @@
         <div class="col-lg-8">8</div>
         <div class="col-lg-4">4</div>
     </div>
+
+    <p>Hello, this is recursive directive in angularjs</p>
+    <div ng-controller="IndexCtrl">
+        <collection collection='tasks'></collection>
+
+        <div ng-repeat="task in tasks">
+            <input type="text" ng-model="task.name"/>{{task.name}}
+        </div>
+    </div>
+
+    <color-block class="box-background-purple" text="Hello"></color-block>
+    <color-block class="box-background-green" text="World"></color-block>
+    <color-block class="box-background-blue" text="nihao"></color-block>
+    <color-block class="box-background-yellow" text="shijie"></color-block>
+
+    <div dl-hover-shading class="top-room">
+        <input type="text" dl-hover-shading> Hover Shading</input>
+    </div>
+
+    <footer>
+        <h4>Hi, I am the footer!</h4>
+    </footer>
     </body>
 </html>
 

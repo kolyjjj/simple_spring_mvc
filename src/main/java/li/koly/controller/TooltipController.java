@@ -1,5 +1,6 @@
 package li.koly.controller;
 
+import li.koly.model.Customer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;

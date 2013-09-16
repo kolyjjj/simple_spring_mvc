@@ -1,4 +1,4 @@
-package li.koly.controller;
+package li.koly.model;
 
 import org.hibernate.validator.constraints.Range;
 

@@ -55,3 +55,39 @@ body{
         position: static !important;
     }
 }
+
+.color-box{
+    width: 100px;
+    height: 100px;
+    padding: 2px;
+    line-height: 100px;
+    text-align: center;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.box-background-purple{
+    background-color: purple;
+}
+
+.box-background-green{
+    background-color: green;
+}
+.box-background-blue{
+    background-color: #28b64c;
+}
+.box-background-yellow{
+    background-color: #f0eede;
+}
+
+footer{
+    margin-top: 30px;
+}
+
+.hover-background-color{
+    background-color: #096d07;
+}
+
+.top-room {
+    margin-top: 20px;
+}
